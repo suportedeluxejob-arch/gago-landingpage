@@ -55,7 +55,7 @@ export const Features: React.FC = () => {
                 <div>
                   <h3 className="text-xl font-bold text-slate-900">Habilidades e Posições</h3>
                   <p className="text-slate-600 mt-1">
-                    Overall (nível) calibrado de acordo com o momento atual do jogador (Maio/2025).
+                    Overall (nível) calibrado de acordo com o momento atual do jogador (ATUALIZADO/2026).
                   </p>
                 </div>
               </div>
