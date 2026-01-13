@@ -14,11 +14,6 @@ export const TEAMS_IMAGE_URL = "https://images.unsplash.com/photo-1431324155629-
 // Imagem dos Jogadores Reais com Faces e Nomes Oficiais
 export const PLAYERS_IMAGE_URL = "https://iili.io/fvtdt5u.md.png";
 
-export const WHATSAPP_LINK = "https://wa.me/5511999999999"; // Exemplo
-
-// Link de redirecionamento do botão de checkout (edite aqui para alterar o destino)
-export const CHECKOUT_LINK = "https://wa.me/5511999999999?text=Olá!%20Quero%20atualizar%20meu%20EA%20FC%2026%20ou%2025";
-
 // Dados das versões disponíveis com preços dinâmicos E LINKS DE COMPRA SEPARADOS
 export const GAME_VERSIONS = [
   {
