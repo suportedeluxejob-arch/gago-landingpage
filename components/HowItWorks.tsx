@@ -1,5 +1,5 @@
 import React from 'react';
-import { Download, Gamepad2, Database } from 'lucide-react';
+import { Download, Gamepad2, Database, Usb, Monitor } from 'lucide-react';
 
 export const HowItWorks: React.FC = () => {
   return (
@@ -27,7 +27,7 @@ export const HowItWorks: React.FC = () => {
 
           {/* Step 2 */}
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden">
-             <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-green-50 rounded-full blur-2xl"></div>
+            <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-green-50 rounded-full blur-2xl"></div>
             <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-6 relative z-10">
               <Download className="w-6 h-6" />
             </div>
@@ -39,14 +39,39 @@ export const HowItWorks: React.FC = () => {
 
           {/* Step 3 */}
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden">
-             <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-purple-50 rounded-full blur-2xl"></div>
+            <div className="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-purple-50 rounded-full blur-2xl"></div>
             <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-6 relative z-10">
               <Gamepad2 className="w-6 h-6" />
             </div>
             <h3 className="text-xl font-bold text-slate-900 mb-3">3. Sem Pen Drive</h3>
-            <p className="text-slate-600 leading-relaxed">
-              <strong>Não é necessário pen drive</strong> ou dispositivo externo. A atualização é feita dentro da edição do próprio jogo.
-            </p>
+            <div className="space-y-4">
+              <p className="text-slate-600 leading-relaxed">
+                <strong>Não é necessário pen drive</strong> ou dispositivo externo. A atualização é feita dentro da edição do próprio jogo.
+              </p>
+
+              {/* Crossed out items */}
+              <div className="flex items-center gap-4 pt-2">
+                <div className="flex items-center gap-2 text-slate-400 bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
+                  <div className="relative">
+                    <Usb className="w-6 h-6 text-slate-400" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-full h-0.5 bg-red-500 -rotate-45 transform"></div>
+                    </div>
+                  </div>
+                  <span className="text-sm font-medium text-slate-500 line-through decoration-red-500 decoration-2">Pen Drive</span>
+                </div>
+
+                <div className="flex items-center gap-2 text-slate-400 bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
+                  <div className="relative">
+                    <Monitor className="w-6 h-6 text-slate-400" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-full h-0.5 bg-red-500 -rotate-45 transform"></div>
+                    </div>
+                  </div>
+                  <span className="text-sm font-medium text-slate-500 line-through decoration-red-500 decoration-2">PC/Note</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
