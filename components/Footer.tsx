@@ -1,4 +1,5 @@
 import React from 'react';
+import { LOGO_URL } from '../constants';
 
 export const Footer: React.FC = () => {
   return (
@@ -6,19 +7,18 @@ export const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         {/* Logo e Nome Centralizados */}
         <div className="flex flex-col items-center mb-12">
-          {/* Logo em Círculo */}
-          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-6 shadow-xl">
-            <div className="text-center">
-              <div className="text-white font-black text-3xl leading-none">W</div>
-              <div className="text-white font-black text-3xl leading-none">G</div>
-            </div>
-          </div>
+          {/* Logo */}
+          <img 
+            src={LOGO_URL} 
+            alt="WG PATCH Logo" 
+            className="h-24 w-auto object-contain mb-4 hover:scale-105 transition-transform duration-300"
+          />
 
           {/* Nome WG PATCH */}
           <h2 className="text-2xl font-black text-white tracking-tighter text-center">
-            WG<span className="text-blue-500 ml-1">PATCH</span>
+            WG<span className="text-cyan-500 ml-1">PATCH</span>
           </h2>
-          <p className="text-blue-500 text-sm font-semibold mt-2">Futebol</p>
+          <p className="text-cyan-500 text-sm font-semibold mt-2">Futebol</p>
         </div>
 
         {/* Descrição */}

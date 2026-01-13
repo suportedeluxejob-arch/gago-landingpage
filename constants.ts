@@ -2,6 +2,10 @@
 // 🌐 LINKS E CONFIGURAÇÕES PRINCIPAIS
 // ========================================
 
+// Logo - EDITÁVEL VIA LINK
+// Substitua pela URL da sua logo preferida
+export const LOGO_URL = "https://iili.io/fvpUFQs.md.png";
+
 // Imagens
 export const HERO_IMAGE_URL = "https://iili.io/fvtQ7jt.md.jpg"; 
 export const GAME_COVERS_URL = "https://iili.io/fvtv041.png";
