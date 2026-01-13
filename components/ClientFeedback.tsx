@@ -4,6 +4,16 @@ import { X, ZoomIn } from 'lucide-react';
 
 export const ClientFeedback: React.FC = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Auto-play para mobile
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % CLIENT_FEEDBACKS.length);
+    }, 3000); // 3 segundos
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="py-20 bg-gradient-to-b from-slate-50 to-white">

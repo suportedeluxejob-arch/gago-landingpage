@@ -4,7 +4,7 @@
 
 // Logo - EDITÁVEL VIA LINK
 // Substitua pela URL da sua logo preferida
-export const LOGO_URL = "https://iili.io/fv4Ka0G.jpg";
+export const LOGO_URL = "https://iili.io/f8WlKIj.png";
 
 // Imagens
 export const HERO_IMAGE_URL = "https://iili.io/fvtQ7jt.md.jpg";
