@@ -16,17 +16,17 @@ export const ClientFeedback: React.FC = () => {
         </div>
 
         {/* Grid de Feedbacks */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
           {CLIENT_FEEDBACKS.map((feedback) => (
             <div
               key={feedback.id}
               className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border border-slate-100"
             >
-              <div className="relative aspect-video bg-slate-50">
+              <div className="relative aspect-[9/16] bg-slate-100">
                 <img
                   src={feedback.image}
                   alt={`Feedback do cliente ${feedback.id}`}
-                  className="w-full h-full object-contain p-2"
+                  className="w-full h-full object-fill bg-center"
                   loading="lazy"
                 />
               </div>
