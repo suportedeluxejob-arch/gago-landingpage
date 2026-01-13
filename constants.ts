@@ -24,7 +24,7 @@ export const GAME_VERSIONS = [
   {
     id: 'ps5',
     name: 'PlayStation 5',
-    image: 'https://iili.io/fvtv041.png',
+    image: 'https://iili.io/fvDgurN.png',
     versions: [
       {
         eaVersion: 'EA FC 26',
