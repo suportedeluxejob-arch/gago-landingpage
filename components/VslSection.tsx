@@ -3,7 +3,9 @@ import { VSL_VIDEO_URL } from '../constants';
 
 export const VslSection: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(84); // Começa em 84% para dar a sensação de "quase acabando"
+  const [progress, setProgress] = useState(0);
+  const [currentTime, setCurrentTime] = useState(0); // Em segundos
+  const totalTime = 945; // 15min 45s em segundos
 
   // Extrair ID do vídeo para pegar a thumbnail
   // Formato esperado: https://www.youtube.com/embed/ZWNlAOrcqoY...
@@ -21,19 +23,27 @@ export const VslSection: React.FC = () => {
   const videoId = getVideoId(VSL_VIDEO_URL);
   const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
 
-  // Simulação de progresso inteligente
+  // Formatar tempo (segundos -> MM:SS)
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  };
+
+  // Simulação de progresso
   useEffect(() => {
     if (!isPlaying) return;
 
-    // A barra avança lentamente do 84% até 98%
     const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 99) {
+      setCurrentTime((prevTime) => {
+        const newTime = prevTime + 1;
+        if (newTime >= totalTime) {
           clearInterval(interval);
-          return 99;
+          return totalTime;
         }
-        // Incremento aleatório pequeno para parecer natural
-        return prev + (Math.random() * 0.1);
+        // Atualiza a barra de progresso baseada no tempo atual
+        setProgress((newTime / totalTime) * 100);
+        return newTime;
       });
     }, 1000);
 
@@ -82,8 +92,8 @@ export const VslSection: React.FC = () => {
             /* IFRAME DO YOUTUBE (CROPADO para esconder UI) */
             <>
               <div className="w-full h-full overflow-hidden relative">
-                {/* 
-                     TRUQUE DO VSL: scale-[1.35] 
+                {/*
+                     TRUQUE DO VSL: scale-[1.35]
                      Isso dá um zoom de 35% no vídeo.
                      Resultado: A barra de título do Youtube (topo) e a logo (rodapé)
                      ficam FORA da área visível (overflow-hidden).
@@ -92,14 +102,17 @@ export const VslSection: React.FC = () => {
                 <iframe
                   src={`${VSL_VIDEO_URL}&autoplay=1&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&playsinline=1`}
                   title="VSL"
-                  className="w-full h-full border-0 pointer-events-auto transform scale-[1.35] origin-center"
+                  className="w-full h-full border-0 pointer-events-auto transform scale-[1.35] origin-center shadow-inner"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
               </div>
 
-              {/* BLOCKERS - Segurança extra anti-clique (transparente) */}
-              <div className="absolute inset-0 z-40 bg-transparent pointer-events-auto"></div>
+              {/* BLOCKERS - Bloqueio Parcial (Permite clique no centro para Play/Pause se necessário) */}
+              {/* Bloqueia Titulo no Topo */}
+              <div className="absolute top-0 left-0 w-full h-24 bg-transparent z-40 pointer-events-auto"></div>
+              {/* Bloqueia Logo Youtube no Canto Inferior Direito */}
+              <div className="absolute bottom-12 right-0 w-48 h-24 bg-transparent z-40 pointer-events-auto"></div>
 
               {/* BARRA DE RETENÇÃO FAKE (Sempre visível sobre o vídeo cropado) */}
               <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black via-black/90 to-transparent pt-10 pb-4 px-6 z-50 pointer-events-none">
@@ -123,9 +136,9 @@ export const VslSection: React.FC = () => {
                       </svg>
                     </div>
                     <div className="flex items-center text-sm gap-1 font-sans text-slate-100 drop-shadow-md">
-                      <span>14:32</span>
+                      <span>{formatTime(currentTime)}</span>
                       <span className="opacity-60">/</span>
-                      <span className="opacity-60">15:45</span>
+                      <span className="opacity-60">{formatTime(totalTime)}</span>
                     </div>
                   </div>
 
@@ -153,7 +166,7 @@ export const VslSection: React.FC = () => {
           <p className="text-slate-600 text-sm">
             <span className="inline-flex items-center gap-2">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              Mais de 840 pessoas assistindo agora
+              Mais de 146 pessoas assistindo agora
             </span>
           </p>
         </div>
