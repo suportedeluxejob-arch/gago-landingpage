@@ -73,11 +73,11 @@ export const Hero: React.FC = () => {
               <div className="relative group">
                 {/* Imagem Principal */}
                 <div className="relative rounded-2xl overflow-hidden shadow-xl border-2 border-slate-200 bg-white">
-                  <div className="aspect-video lg:aspect-square bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center relative">
+                  <div className="bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center relative w-full" style={{ aspectRatio: '483 / 631' }}>
                     <img
                       src={currentPlatform.image}
                       alt={`${currentPlatform.name} ${currentPrice.eaVersion}`}
-                      className="w-full h-full object-cover transition-all duration-500 ease-out"
+                      className="w-full h-full object-contain transition-all duration-500 ease-out"
                     />
                   </div>
 
