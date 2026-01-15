@@ -6,14 +6,20 @@
 // Substitua pela URL da sua logo preferida
 export const LOGO_URL = "https://iili.io/f8WlKIj.png";
 
-// Imagens
-export const HERO_IMAGE_URL = "https://iili.io/fvtQ7jt.md.jpg";
+// ========================================
+// 🎭 CARROSSEL DA HERO (LADO DIREITO)
+// ========================================
+// Adicione ou remova links de imagem aqui para o carrossel que fica ao lado dos preços.
+// A primeira imagem da lista será a que aparece primeiro.
 export const HERO_CAROUSEL_IMAGES = [
-  "https://iili.io/fvtQ7jt.md.jpg",
+  "https://iili.io/fvtQ7jt.md.jpg", // <--- IMAGEM DO NEYMAR (ORIGINAL)
   "https://iili.io/fvbfWF4.jpg",
   "https://iili.io/fvbMDlf.md.png",
   "https://iili.io/fvpUFQs.md.png"
 ];
+
+// Imagem fixa (fallback se necessário)
+export const HERO_IMAGE_URL = HERO_CAROUSEL_IMAGES[0];
 export const GAME_COVERS_URL = "https://iili.io/fvtv041.png";
 export const TEAMS_IMAGE_URL = "https://iili.io/fvpUFQs.md.png";
 export const PLAYERS_IMAGE_URL = "https://iili.io/fvtdt5u.md.png";

@@ -64,17 +64,6 @@ export const Hero: React.FC = () => {
               100% Seguro e Atualizado
             </div>
 
-            {/* Headline Apelativa */}
-            <div className="mb-6">
-              <span className="bg-red-600 text-white px-4 py-1.5 rounded-lg text-sm font-black uppercase tracking-widest animate-pulse inline-block mb-3">
-                ⚠️ ATENÇÃO
-              </span>
-              <h2 className="text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
-                O PATCH MAIS COMPLETO E REALISTA <br className="hidden sm:block" />
-                <span className="text-blue-600">DO MERCADO ESTÁ AQUI!</span>
-              </h2>
-            </div>
-
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 leading-tight mb-6">
               Licencie seu <span className="text-blue-600">EA FC 26 ou 25</span> de PS4, PS5 e Xbox
             </h1>
@@ -188,9 +177,21 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Image Content - Hero Image */}
-          <div className="relative group block mt-12 lg:mt-0 max-w-xs mx-auto lg:max-w-full">
+          <div className="relative group block mt-12 lg:mt-0 max-w-sm mx-auto lg:max-w-full w-full">
+
+            {/* Headline Apelativa - AGORA ACIMA DA FOTO */}
+            <div className="mb-6 text-center lg:text-left">
+              <span className="bg-red-600 text-white px-4 py-1.5 rounded-lg text-sm font-black uppercase tracking-widest animate-pulse inline-block mb-3">
+                ⚠️ ATENÇÃO
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-black text-slate-900 leading-tight">
+                O PATCH MAIS COMPLETO E REALISTA <br className="hidden sm:block" />
+                <span className="text-blue-600">DO MERCADO ESTÁ AQUI!</span>
+              </h2>
+            </div>
+
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200"></div>
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white aspect-[4/5] sm:aspect-auto">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-white w-full aspect-[4/5] sm:aspect-[4/5.5]">
               {HERO_CAROUSEL_IMAGES.map((img, index) => (
                 <img
                   key={index}
